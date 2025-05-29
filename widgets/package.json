@@ -1,21 +1,49 @@
 {
-  "name": "shared-web-components",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "vue": "^3.5.13"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.3",
-    "@vue/tsconfig": "^0.7.0",
-    "typescript": "~5.8.3",
-    "vite": "^6.3.5",
-    "vue-tsc": "^2.2.8"
-  }
+    "name": "@solanavehikl/shared-web-components",
+    "type": "module",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/shared-web-components.umd.js",
+    "module": "./dist/shared-web-components.es.js",
+    "types": "./dist/main.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/main.d.ts",
+            "import": "./dist/shared-web-components.es.js",
+            "require": "./dist/shared-web-components.umd.js"
+        }
+    },
+    "scripts": {
+        "dev": "vite",
+        "build": "vue-tsc -b && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "vue": "^3.5.13"
+    },
+    "devDependencies": {
+        "@types/node": "^22.15.24",
+        "@vitejs/plugin-vue": "^5.2.3",
+        "@vue/tsconfig": "^0.7.0",
+        "typescript": "~5.8.3",
+        "vite": "^6.3.5",
+        "vite-plugin-dts": "^4.5.4",
+        "vue-tsc": "^2.2.8"
+    },
+    "version": "1.0.0",
+    "description": "A package of sharable components",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NByam13/shared-web-components.git"
+    },
+    "keywords": [
+        "web-components"
+    ],
+    "author": "solana-vehikl",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/NByam13/shared-web-components/issues"
+    },
+    "homepage": "https://github.com/NByam13/shared-web-components#readme"
 }
