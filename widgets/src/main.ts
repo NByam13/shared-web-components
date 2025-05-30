@@ -1,7 +1,5 @@
-import {createApp, defineCustomElement} from 'vue'
-import './style.css'
+import {defineCustomElement} from 'vue'
 import CountWidgetCe from "./components/countWidget.ce.vue";
-import App from "./App.vue";
 
 export { CountWidgetCe }
 
@@ -10,4 +8,3 @@ export const register = () => {
     customElements.define('count-foobar', element)
 }
 
-createApp(App).mount('#app')
