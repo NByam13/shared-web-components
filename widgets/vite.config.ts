@@ -2,9 +2,11 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { fileURLToPath, URL } from 'node:url'
 import dts from 'vite-plugin-dts'
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
     plugins: [
+        tailwindcss(),
         vue({
             template: {
                 compilerOptions: {
@@ -43,7 +45,4 @@ export default defineConfig({
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
     },
-    define: {
-        'process.env': 'process.env'
-    }
 })
