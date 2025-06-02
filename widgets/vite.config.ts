@@ -1,31 +1,33 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { fileURLToPath, URL } from 'node:url'
-import dts from 'vite-plugin-dts'
 import tailwindcss from "@tailwindcss/vite";
+import dts from "vite-plugin-dts";
+import {resolve} from "path";
+import {fileURLToPath} from "node:url";
 
 export default defineConfig({
     plugins: [
         tailwindcss(),
-        vue({
-            template: {
-                compilerOptions: {
-                    // Configure Vue to treat custom elements properly
-                    isCustomElement: (tag) => tag.includes('-')
-                }
-            }
-        }),
+        dts(),
+        vue()
+        // vue({
+        //     template: {
+        //         compilerOptions: {
+        //             // Configure Vue to treat custom elements properly
+        //             isCustomElement: (tag) => tag.includes('-')
+        //         }
+        //     }
+        // }),
         // Generate TypeScript declaration files
-        dts({
-            insertTypesEntry: true
-        })
     ],
     build: {
         lib: {
-            entry: fileURLToPath(new URL('./src/main.ts', import.meta.url)),
+            // entry: fileURLToPath(new URL('./src/main.ts', import.meta.url)),
+            entry: resolve(__dirname, "src/main.ts"),
             name: 'SharedWebComponents',
-            formats: ['es', 'umd'],
-            fileName: (format) => `shared-web-components.${format}.js`
+            formats: ['es'],
+            // fileName: (format) => `shared-web-components.${format}.js`
+            fileName: 'shared-web-components'
         },
         rollupOptions: {
             // Externalize Vue since it should be provided by the consuming application
@@ -37,8 +39,7 @@ export default defineConfig({
             }
         },
         // Target modern browsers for custom elements support
-        target: 'esnext',
-        sourcemap: true
+        target: 'esnext'
     },
     resolve: {
         alias: {

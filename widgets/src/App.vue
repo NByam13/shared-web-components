@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {register} from "./main.ts";
+import {register} from "./main";
 register()
 </script>
 

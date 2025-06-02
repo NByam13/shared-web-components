@@ -1,7 +1,16 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+//  "files": ["src/**/*.ts", "src/**/*.vue"],
+//  "references": [
+//    { "path": "./tsconfig.app.json" },
+//    { "path": "./tsconfig.node.json" }
+//  ],
+    "include": ["./src/**/*.ts"],
+    "exclude": ["./src/index.ts"],
+    "compilerOptions": {
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "target": "ESNext",
+        "moduleResolution": "node"
+    }
 }
