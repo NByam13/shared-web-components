@@ -12,5 +12,3 @@ const count = ref(0)
 <style >
 @import "../output.css";
 </style>
-<style src="../output.css" scoped>
-</style>
