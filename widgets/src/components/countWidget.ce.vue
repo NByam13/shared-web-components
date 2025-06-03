@@ -6,8 +6,11 @@ const count = ref(0)
 
 <template>
     <button class="btn" type="button" @click="count++">count is {{ count }}</button>
+
 </template>
 
-<style scoped>
+<style >
 @import "../output.css";
+</style>
+<style src="../output.css" scoped>
 </style>

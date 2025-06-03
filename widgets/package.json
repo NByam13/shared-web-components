@@ -4,14 +4,13 @@
     "files": [
         "dist"
     ],
-    "main": "./dist/shared-web-components.umd.js",
-    "module": "./dist/shared-web-components.es.js",
+    "main": "./dist/shared-web-components.js",
+    "module": "./dist/shared-web-components.js",
     "types": "./dist/main.d.ts",
     "exports": {
         ".": {
             "types": "./dist/main.d.ts",
-            "import": "./dist/shared-web-components.es.js",
-            "require": "./dist/shared-web-components.umd.js"
+            "import": "./dist/shared-web-components.js"
         }
     },
     "scripts": {
@@ -35,7 +34,7 @@
         "vite": "^6.3.5",
         "vue-tsc": "^2.2.8"
     },
-    "version": "1.0.0",
+    "version": "2.0.8",
     "description": "A package of sharable components",
     "repository": {
         "type": "git",

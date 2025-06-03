@@ -29,15 +29,6 @@ export default defineConfig({
             // fileName: (format) => `shared-web-components.${format}.js`
             fileName: 'shared-web-components'
         },
-        rollupOptions: {
-            // Externalize Vue since it should be provided by the consuming application
-            external: ['vue'],
-            output: {
-                globals: {
-                    vue: 'Vue'
-                }
-            }
-        },
         // Target modern browsers for custom elements support
         target: 'esnext'
     },
