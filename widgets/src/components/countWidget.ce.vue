@@ -6,7 +6,6 @@ const count = ref(0)
 
 <template>
     <button class="btn" type="button" @click="count++">count is {{ count }}</button>
-
 </template>
 
 <style >

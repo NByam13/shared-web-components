@@ -6,6 +6,7 @@ register()
 
 <template>
   <count-foobar />
+    <api-foobar/>
   <CountWidget></CountWidget>
 </template>
 

@@ -1,10 +1,14 @@
 import {defineCustomElement} from 'vue'
 import CountWidgetCe from "./components/countWidget.ce.vue";
+import ApiWidgetCe from "./components/apiWidget.ce.vue";
 
 export { CountWidgetCe }
 
 export const register = () => {
-    const element = defineCustomElement(CountWidgetCe)
-    customElements.define('count-foobar', element)
+    const count = defineCustomElement(CountWidgetCe)
+    customElements.define('count-foobar', count)
+
+    const api = defineCustomElement(ApiWidgetCe)
+    customElements.define('api-foobar', api)
 }
 
