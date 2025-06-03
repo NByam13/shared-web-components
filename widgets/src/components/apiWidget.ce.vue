@@ -27,7 +27,6 @@ interface User {
 
 const users = ref<User[]>()
 const error = ref<string>()
-
 const getData = async () => {
     error.value = undefined
 
