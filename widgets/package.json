@@ -1,6 +1,21 @@
 {
     "name": "@solanavehikl/shared-web-components",
     "type": "module",
+    "version": "5.0.0",
+    "description": "A package of sharable components",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NByam13/shared-web-components.git"
+    },
+    "keywords": [
+        "web-components"
+    ],
+    "author": "solana-vehikl",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/NByam13/shared-web-components/issues"
+    },
+    "homepage": "https://github.com/NByam13/shared-web-components#readme",
     "files": [
         "dist"
     ],
@@ -33,20 +48,5 @@
         "typescript": "~5.8.3",
         "vite": "^6.3.5",
         "vue-tsc": "^2.2.8"
-    },
-    "version": "4.0.0",
-    "description": "A package of sharable components",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/NByam13/shared-web-components.git"
-    },
-    "keywords": [
-        "web-components"
-    ],
-    "author": "solana-vehikl",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/NByam13/shared-web-components/issues"
-    },
-    "homepage": "https://github.com/NByam13/shared-web-components#readme"
+    }
 }
