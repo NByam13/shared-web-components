@@ -7,11 +7,8 @@ register()
 </script>
 
 <template>
-<!--    <count-foobar/>-->
-<!--    <api-foobar .text="'hello'"/>-->
-    <sales-comps-table/>
-<!--    <foobar-testing :token.prop="token"-->
-<!--                  :basepath.prop="basepath" .region="'USA'" .sectorId="11" .marketLevelId="1" .marketId="150" :withGrades.prop="true"></foobar-testing>-->
+    <sales-comps-table :token.prop="token"
+                       :basepath.prop="basepath" .region="'USA'" .sectorId="'11'" .marketLevelId="'1'" .marketId="'150'" :withGrades.prop="true"/>
 </template>
 
 <style scoped></style>

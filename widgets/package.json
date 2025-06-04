@@ -34,7 +34,7 @@
         "vite": "^6.3.5",
         "vue-tsc": "^2.2.8"
     },
-    "version": "3.0.0",
+    "version": "4.0.0",
     "description": "A package of sharable components",
     "repository": {
         "type": "git",

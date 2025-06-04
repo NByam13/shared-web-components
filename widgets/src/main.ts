@@ -3,8 +3,6 @@ import CountWidgetCe from "./components/countWidget.ce.vue";
 import ApiWidgetCe from "./components/apiWidget.ce.vue";
 import SalesCompsTableWidgetCe from "./components/salesCompsTableWidget.ce.vue";
 
-export { CountWidgetCe, ApiWidgetCe, SalesCompsTableWidgetCe }
-
 export const register = () => {
     const count = defineCustomElement(CountWidgetCe)
     customElements.define('count-foobar', count)
@@ -16,3 +14,8 @@ export const register = () => {
     customElements.define('sales-comps-table', salesCompsTable)
 }
 
+const count = defineCustomElement(CountWidgetCe)
+const api = defineCustomElement(ApiWidgetCe)
+const salesCompsTable = defineCustomElement(SalesCompsTableWidgetCe)
+
+export {count, api, salesCompsTable}

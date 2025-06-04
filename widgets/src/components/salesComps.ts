@@ -19,9 +19,20 @@ export interface SalesCompsTransaction  {
     formattedSize: string,
     formattedPriceConfirmed: string,
     formattedPricePer: string,
+    priceConfirmed: number,
     submarketId: string,
     currencyCode: string,
     region: string,
     latitude: number,
     longitude: number,
+}
+
+export interface TableProps {
+    token: string,
+    basepath: string,
+    marketId: string,
+    region: string,
+    sectorId: string,
+    withGrades: boolean,
+    marketLevelId: string
 }

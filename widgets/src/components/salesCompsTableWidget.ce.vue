@@ -1,15 +1,10 @@
 <script setup lang="ts">
 import {computed,  ref} from "vue";
-import type {SalesCompsTransaction } from "@/components/salesComps";
+import type {SalesCompsTransaction, TableProps} from "@/components/salesComps";
 
-interface TableProps {
-    token: string,
-    basepath: string,
-    marketId: string,
-    region: string,
-    sectorId: string,
-    withGrades: string,
-    marketLevelId: string
+type ColumnDefinition = {
+    title: string
+    key: keyof SalesCompsTransaction
 }
 
 const url = 'api/market_data/markets/150/sales_comps'
@@ -20,13 +15,23 @@ const isLoading = ref<boolean>(false)
 const error = ref<string>()
 const path = computed(() => {
     const params = new URLSearchParams()
-    params.set("marketId", props.marketId.toString())
+    params.set("marketId", props.marketId)
     params.set("region", props.region)
-    params.set("withGrades", props.withGrades)
-    params.set("marketLevelId", props.marketLevelId.toString())
+    params.set("withGrades", props.withGrades ? '1' : '0')
+    params.set("marketLevelId", props.marketLevelId)
+    params.set("sectorId", props.sectorId)
+    console.log(params.toString())
 
-    return props.basepath + url + params.toString()
+    return props.basepath + url + '?' + params.toString()
 })
+
+const headers = ref<ColumnDefinition[]>([
+    {title: "Property", key: 'property'},
+    {title: "Buyer", key: 'entityBuyer'},
+    {title: "Seller", key: 'entitySeller'},
+    {title: "Sale Date", key: 'dateSale'},
+    {title: "Price", key: 'priceConfirmed'},
+])
 
 const fetchSalesComps = async () => {
     isLoading.value = true
@@ -48,7 +53,7 @@ const fetchSalesComps = async () => {
         return;
     }
 
-    salesCompsData.value = jsonData;
+    salesCompsData.value = jsonData.data;
 }
 </script>
 
@@ -61,7 +66,14 @@ const fetchSalesComps = async () => {
         <div>There was an error</div>
         <span>{{error}}</span>
     </div>
-    <div v-else>{{salesCompsData}}</div>
+    <div class="grid grid-cols-5" >
+        <div v-for="header in headers">{{ header.title }}</div>
+        <div v-for="item in salesCompsData" class="col-span-5 grid grid-cols-5">
+            <div v-for="header in headers">
+                {{item[header.key]}}
+            </div>
+        </div>
+    </div>
 </template>
 
 <style>
