@@ -18,10 +18,10 @@ export default defineConfig({
                 }
             }
         }),
-        replace({
-            preventAssignment: true,
-            'process.env.NODE_ENV': JSON.stringify('production'),
-        })
+        // replace({
+        //     preventAssignment: true,
+        //     'process.env.NODE_ENV': JSON.stringify('production'),
+        // })
         // Generate TypeScript declaration files
     ],
     build: {
@@ -30,8 +30,8 @@ export default defineConfig({
             entry: resolve(__dirname, "src/main.ts"),
             name: 'SharedWebComponents',
             formats: ['es'],
-            // fileName: (format) => `shared-web-components.${format}.js`
-            fileName: 'shared-web-components'
+            fileName: (format) => `shared-web-components.${format}.js`
+            // fileName: 'shared-web-components'
         },
         // Target modern browsers for custom elements support
         target: 'esnext'
@@ -41,4 +41,7 @@ export default defineConfig({
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
     },
+    define: {
+        'process.env.NODE_ENV': JSON.stringify('production')
+    }
 })
