@@ -9,15 +9,14 @@ export default defineConfig({
     plugins: [
         tailwindcss(),
         dts(),
-        vue()
-        // vue({
-        //     template: {
-        //         compilerOptions: {
-        //             // Configure Vue to treat custom elements properly
-        //             isCustomElement: (tag) => tag.includes('-')
-        //         }
-        //     }
-        // }),
+        vue({
+            template: {
+                compilerOptions: {
+                    // Configure Vue to treat custom elements properly
+                    isCustomElement: (tag) => tag.includes('-')
+                }
+            }
+        }),
         // Generate TypeScript declaration files
     ],
     build: {

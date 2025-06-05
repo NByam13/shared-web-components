@@ -1,7 +1,7 @@
 {
     "name": "@solanavehikl/shared-web-components",
     "type": "module",
-    "version": "6.0.0",
+    "version": "7.0.0",
     "description": "A package of sharable components",
     "repository": {
         "type": "git",

@@ -3,6 +3,12 @@ import CountWidgetCe from "./components/countWidget.ce.vue";
 import ApiWidgetCe from "./components/apiWidget.ce.vue";
 import SalesCompsTableWidgetCe from "./components/salesCompsTableWidget.ce.vue";
 
+declare module 'vue' {
+    interface GlobalComponents {
+        'sales-comps-table': typeof SalesCompsTableWidgetCe
+    }
+}
+
 export const register = () => {
     const count = defineCustomElement(CountWidgetCe)
     customElements.define('count-foobar', count)
