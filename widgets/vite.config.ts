@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import dts from "vite-plugin-dts";
 import {resolve} from "path";
 import {fileURLToPath} from "node:url";
+import replace from "@rollup/plugin-replace";
 
 export default defineConfig({
     plugins: [
@@ -17,6 +18,10 @@ export default defineConfig({
                 }
             }
         }),
+        replace({
+            preventAssignment: true,
+            'process.env.NODE_ENV': JSON.stringify('production'),
+        })
         // Generate TypeScript declaration files
     ],
     build: {

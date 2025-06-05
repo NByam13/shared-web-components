@@ -7,7 +7,7 @@ type ColumnDefinition = {
     key: keyof SalesCompsTransaction
 }
 
-const url = 'api/market_data/markets/150/sales_comps'
+const urlTemplate = 'api/market_data/markets/:id/sales_comps'
 const props = defineProps<TableProps>()
 
 const salesCompsData = ref<SalesCompsTransaction[]>()
@@ -20,7 +20,7 @@ const path = computed(() => {
     params.set("withGrades", props.withGrades ? '1' : '0')
     params.set("marketLevelId", props.marketLevelId)
     params.set("sectorId", props.sectorId)
-    console.log(params.toString())
+    const url = urlTemplate.replace(':id', props.marketId)
 
     return props.basepath + url + '?' + params.toString()
 })
