@@ -4,7 +4,6 @@ import tailwindcss from "@tailwindcss/vite";
 import dts from "vite-plugin-dts";
 import {resolve} from "path";
 import {fileURLToPath} from "node:url";
-import replace from "@rollup/plugin-replace";
 
 export default defineConfig({
     plugins: [
@@ -41,7 +40,7 @@ export default defineConfig({
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
     },
-    define: {
-        'process.env.NODE_ENV': JSON.stringify('production')
-    }
+    // define: {
+    //     'process.env.NODE_ENV': JSON.stringify('production')
+    // }
 })
