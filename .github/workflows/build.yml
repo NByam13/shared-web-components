@@ -6,7 +6,6 @@ on:
   push:
     branches:
       - main
-      - pluginification
 
 jobs:
   build-and-release:
@@ -26,7 +25,7 @@ jobs:
       - name: Merge and build
         uses: humanmade/hm-github-actions/.github/actions/build-to-release-branch@bbe801d037b61dd0fa0fcd7d208f6bf54d7ca1fd # v0.1.1
         with:
-          source_branch: ${{ github.ref_name }} # Can change to "main" post-testing.
+          source_branch: main
           release_branch: release
           built_asset_paths: widgets/dist
           build_script: |
