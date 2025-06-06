@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import dts from "vite-plugin-dts";
 import {resolve} from "path";
 import {fileURLToPath} from "node:url";
+import replace from "@rollup/plugin-replace";
 
 export default defineConfig({
     plugins: [
@@ -17,20 +18,17 @@ export default defineConfig({
                 }
             }
         }),
-        // replace({
-        //     preventAssignment: true,
-        //     'process.env.NODE_ENV': JSON.stringify('production'),
-        // })
-        // Generate TypeScript declaration files
+        replace({
+            preventAssignment: true,
+            'process.env.NODE_ENV': JSON.stringify('production'),
+        })
     ],
     build: {
         lib: {
-            // entry: fileURLToPath(new URL('./src/main.ts', import.meta.url)),
             entry: resolve(__dirname, "src/main.ts"),
             name: 'SharedWebComponents',
             formats: ['es'],
-            fileName: (format) => `shared-web-components.${format}.js`
-            // fileName: 'shared-web-components'
+            fileName: 'shared-web-components'
         },
         // Target modern browsers for custom elements support
         target: 'esnext'
@@ -40,7 +38,4 @@ export default defineConfig({
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
     },
-    // define: {
-    //     'process.env.NODE_ENV': JSON.stringify('production')
-    // }
 })
