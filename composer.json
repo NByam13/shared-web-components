@@ -1,6 +1,0 @@
-{
-    "name": "gs/shared-web-components",
-    "description": "Register API widget module scripts for use throughout application.",
-    "type": "wordpress-plugin",
-    "license": "GPL-2.0-or-later"
-}
